@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sysModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="activities">
+    <Key>
+      <PropertyRef Name="idactivities" />
+    </Key>
+    <Property Name="idactivities" Type="int" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="45" />
+    <Property Name="distance" Type="float" />
+    <Property Name="date" Type="datetime" Precision="0" />
+    <Property Name="note" Type="varchar" MaxLength="45" />
+    <Property Name="userid" Type="int" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="idusers" />
+    </Key>
+    <Property Name="idusers" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="45" />
+    <Property Name="password" Type="varchar" MaxLength="45" />
+    <Property Name="goal" Type="float" />
+    <Property Name="bikedivider" Type="float" />
+    <Property Name="swimdivider" Type="float" />
+  </EntityType>
+  <EntityContainer Name="sysModelStoreContainer">
+    <EntitySet Name="activities" EntityType="Self.activities" Schema="sys" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="sys" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

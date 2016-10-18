@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="sysModelStoreContainer" CdmEntityContainer="sysEntities">
+    <EntitySetMapping Name="activities">
+      <EntityTypeMapping TypeName="sysModel.activities">
+        <MappingFragment StoreEntitySet="activities">
+          <ScalarProperty Name="idactivities" ColumnName="idactivities" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="distance" ColumnName="distance" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="sysModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="idusers" ColumnName="idusers" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
