@@ -91,6 +91,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Calendar\AddDay.cs" />
+    <Compile Include="Views\Calendar\AddDistance.cs" />
+    <Compile Include="Views\Calendar\AddMonth.cs" />
+    <Compile Include="Views\Calendar\AddNote.cs" />
+    <Compile Include="Views\Calendar\AddSelectDate.cs" />
+    <Compile Include="Views\Calendar\AddType.cs" />
+    <Compile Include="Views\Calendar\AddYear.cs" />
     <Compile Include="Views\Calendar\Search.cs" />
     <Compile Include="Views\Calendar\Values.cs" />
     <Compile Include="Views\layouts\Back.cs" />
@@ -106,7 +113,6 @@
     <Compile Include="Views\MainMenu\Index.cs" />
     <Compile Include="Views\MainMenu\Login.cs" />
     <Compile Include="Views\MainMenu\Register.cs" />
-    <Compile Include="Views\Calendar\AddActivity.cs" />
     <Compile Include="Views\Calendar\MainView.cs" />
   </ItemGroup>
   <ItemGroup>
