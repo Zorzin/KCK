@@ -14,6 +14,7 @@ namespace KCKTest.Controllers
         /**
          * Kotroler do wyswietlania i edycji aktywnosci
         **/
+
         public ActivitiesContoller(List<Activity> activities)
         {
             Back.Clear();
@@ -51,25 +52,25 @@ namespace KCKTest.Controllers
                                 Back.Clear();
                                 break;
                             case 1: //type
-                                if (CheckEditType(currentactivity, Edit.EditType()))
+                                if (SaveEditType(currentactivity, GetFromUser.GetTypeFromUser()))
                                     Edit.Done();
                                 else
                                     Edit.Error();
                                 break;
                             case 2: //distance
-                                if (CheckEditDistance(currentactivity, Edit.EditDistance()))
+                                if (SaveEditDistance(currentactivity, GetFromUser.GetDistanceFromUser()))
                                     Edit.Done();
                                 else
                                     Edit.Error();
                                 break;
                             case 3: //date
-                                if (CheckEditDate(currentactivity, Edit.EditDate()))
+                                if (SaveEditDate(currentactivity, GetFromUser.GetDateFromUser()))
                                     Edit.Done();
                                 else
                                     Edit.Error();
                                 break;
                             case 4: //note
-                                if (CheckEditNote(currentactivity, Edit.EditNote()))
+                                if (SaveEditNote(currentactivity, GetFromUser.GetNoteFromUser()))
                                     Edit.Done();
                                 else
                                     Edit.Error();
@@ -92,9 +93,9 @@ namespace KCKTest.Controllers
             }
         }
 
-        private bool CheckEditType(Activity activity, string type)
+        private bool SaveEditType(Activity activity, string type)
         {
-            if ((type == "run") || (type == "bike") || (type == "swim"))
+            if (type == null)
             {
                 var result = db.activities.FirstOrDefault(x => x.idactivities == activity.idactivities);
                 if (result != null)
@@ -109,44 +110,44 @@ namespace KCKTest.Controllers
             return false;
         }
 
-        private bool CheckEditDistance(Activity activity, string distance)
+        private bool SaveEditDistance(Activity activity, float? d_distance)
         {
-            float ch_distance;
-            if (float.TryParse(distance, out ch_distance))
-            {
-                var result = db.activities.FirstOrDefault(x => x.idactivities == activity.idactivities);
-                if (result != null)
-                {
-                    result.distance = ch_distance;
-                    activity.distance = ch_distance;
-                    db.SaveChanges();
-                    return true;
-                }
+            if (d_distance == null)
                 return false;
+            var distance = d_distance.Value;
+            var result = db.activities.FirstOrDefault(x => x.idactivities == activity.idactivities);
+            if (result != null)
+            {
+                result.distance = distance;
+                activity.distance = distance;
+                db.SaveChanges();
+                return true;
             }
             return false;
         }
 
-        private bool CheckEditDate(Activity activity, string date)
+        private bool SaveEditDate(Activity activity, DateTime? d_date)
         {
-            DateTime ch_date;
-            if (DateTime.TryParse(date, out ch_date))
-            {
-                var result = db.activities.FirstOrDefault(x => x.idactivities == activity.idactivities);
-                if (result != null)
-                {
-                    result.date = ch_date;
-                    activity.date = ch_date;
-                    db.SaveChanges();
-                    return true;
-                }
+            if (d_date == null)
                 return false;
+            var date = d_date.Value;
+            var result = db.activities.FirstOrDefault(x => x.idactivities == activity.idactivities);
+            if (result != null)
+            {
+                result.date = date;
+                activity.date = date;
+                db.SaveChanges();
+                return true;
             }
             return false;
         }
 
-        private bool CheckEditNote(Activity activity, string note)
+        private bool SaveEditNote(Activity activity, string note)
         {
+            if (note==null)
+            {
+                return false;
+            }
             var result = db.activities.FirstOrDefault(x => x.idactivities == activity.idactivities);
             if (result != null)
             {

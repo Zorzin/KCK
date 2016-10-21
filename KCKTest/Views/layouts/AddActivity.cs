@@ -12,6 +12,7 @@ namespace KCKTest.Views.Calendar
     {
         public static int GetDay(int month, int year)
         {
+            Console.Clear();
             List<string> dayList = new List<string>();
             dayList.Add("Back");
             for (int i = 0; i < DateTime.DaysInMonth(year, month); i++)
@@ -26,13 +27,15 @@ namespace KCKTest.Views.Calendar
         {
             Console.Clear();
             Console.WriteLine("Enter distance [km]: ");
+            Console.WriteLine("Enter \"esc\" to exit.");
             return Console.ReadLine();
         }
 
         public static int GetMonth()
         {
+            Console.Clear();
             List<string> monthList = new List<string>();
-            monthList.Add("Back");
+            monthList.Add("Exit");
             for (int i = 0; i < 12; i++)
             {
                 monthList.Add(CultureInfo.CurrentUICulture.DateTimeFormat.MonthNames [i]);
@@ -45,6 +48,7 @@ namespace KCKTest.Views.Calendar
         {
             Console.Clear();
             Console.WriteLine("Enter Note: ");
+            Console.WriteLine("Enter \"esc\" to exit.");
             return Console.ReadLine();
         }
 
@@ -52,7 +56,7 @@ namespace KCKTest.Views.Calendar
         {
             Console.Clear();
             Console.WriteLine("Select date: ");
-            var yearList = new List<string> {"Back", "Today", "Yesterday", "Another date"};
+            var yearList = new List<string> {"Exit", "Today", "Yesterday", "Another date"};
             Menu.ShowMenu(yearList);
             return Menu.Selected;
         }
@@ -61,7 +65,7 @@ namespace KCKTest.Views.Calendar
         {
             Console.Clear();
             Console.WriteLine("Select type: ");
-            List<string> typeList = new List<string>() {"back","run","swim","bike"};
+            List<string> typeList = new List<string>() {"Exit","Run","Swim","Bike"};
             Menu.ShowMenu(typeList);
             return Menu.Selected;
         }
@@ -70,6 +74,7 @@ namespace KCKTest.Views.Calendar
         {
             Console.Clear();
             Console.WriteLine("Enter Year: ");
+            Console.WriteLine("Enter \"esc\" to exit.");
             return Console.ReadLine();
         }
     }

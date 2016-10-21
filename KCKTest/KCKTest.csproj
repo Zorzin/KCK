@@ -70,6 +70,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ActivitiesContoller.cs" />
+    <Compile Include="Controllers\Check.cs" />
+    <Compile Include="Controllers\GetFromDB.cs" />
+    <Compile Include="Controllers\GetFromUser.cs" />
     <Compile Include="Controllers\MainMenuController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Model.cs" />
@@ -91,13 +94,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\Calendar\AddDay.cs" />
-    <Compile Include="Views\Calendar\AddDistance.cs" />
-    <Compile Include="Views\Calendar\AddMonth.cs" />
-    <Compile Include="Views\Calendar\AddNote.cs" />
-    <Compile Include="Views\Calendar\AddSelectDate.cs" />
-    <Compile Include="Views\Calendar\AddType.cs" />
-    <Compile Include="Views\Calendar\AddYear.cs" />
+    <Compile Include="Views\layouts\AddActivity.cs" />
     <Compile Include="Views\Calendar\Search.cs" />
     <Compile Include="Views\Calendar\Values.cs" />
     <Compile Include="Views\layouts\Back.cs" />
