@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using KCKTest.Models;
 using KCKTest.Views.Activities;
@@ -29,13 +30,7 @@ namespace KCKTest.Controllers
                 {
                     case 0: //add
 
-                        var addActivity = new AddActivity();
-                        if (CheckActivity(addActivity.Type, addActivity.Distance, addActivity.Date, addActivity.Note))
-                        {
-                            addActivity.Added();
-                            break;
-                        }
-                        addActivity.WrongData();
+                        AddActivity();
                         break;
                     case 1: //search
                         var search = Search.Choose();
@@ -105,6 +100,77 @@ namespace KCKTest.Controllers
                         break;
                 }
             }
+        }
+
+        private void AddActivity()
+        {
+            string type;
+            int i_type = Views.Calendar.AddActivity.GetActivityType();
+            switch (i_type)
+            {
+                case 0:
+                    return;
+                    break;
+                case 1:
+                    type = "run";
+                    break;
+                case 2:
+                    type = "swim";
+                    break;
+                case 3:
+                    type = "bike";
+                    break;
+            }
+            DateTime date;
+            int i_date = Views.Calendar.AddActivity.GetDate();
+            switch (i_date)
+            {
+                case 0:
+                    return;
+                    break;
+                case 1:
+                    date = DateTime.Today;
+                    break;
+                case 2:
+                    date = DateTime.Today.AddDays(1); //minus jeden?
+                    break;
+                case 3:
+                    if (GetDate()==null)
+                    {
+                        return;
+                    }
+                    break;
+            }
+            float distance;
+            string s_distance = Views.Calendar.AddActivity.GetDistance();
+            if (!float.TryParse(s_distance, out distance))
+            {
+                return;
+            }
+            string note = Views.Calendar.AddActivity.GetNote();
+        }
+
+        private DateTime? GetDate()
+        {
+            DateTime date;
+            string s_year = Views.Calendar.AddActivity.GetYear();
+            int year;
+            if (!int.TryParse(s_year,out year))
+            {
+                return null;
+            }
+            int month = Views.Calendar.AddActivity.GetMonth();
+            if (month==0) //back
+            {
+                return null;
+            }
+            int day = Views.Calendar.AddActivity.GetDay(month, year);
+            if (day==0)
+            {
+                return null;
+            }
+            date = new DateTime(year,month,day);
+            return date;
         }
 
         private int GetNumberOfActivities()
