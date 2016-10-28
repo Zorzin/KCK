@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace KCKTest.Views.Activities
+namespace KCKTest.Views.layouts
 {
     internal static class Back
     {

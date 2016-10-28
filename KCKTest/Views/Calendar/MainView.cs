@@ -35,8 +35,8 @@ namespace KCKTest.Views.Calendar
             var menustring = new List<string>
             {
                 "Add",
-                "Search",
-                "Show",
+                "Search activities",
+                "Show activities",
                 "Logout",
                 "Change goal",
                 "Change dividers",

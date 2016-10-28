@@ -1,4 +1,5 @@
 ﻿using System;
+using KCKTest.Controllers;
 
 namespace KCKTest.Views.Calendar
 {
@@ -10,7 +11,7 @@ namespace KCKTest.Views.Calendar
         {
             Console.Clear();
             Console.WriteLine("Enter new goal: ");
-            Newgoal = Console.ReadLine();
+            Newgoal = CheckData.ChengeDot(Console.ReadLine());
         }
 
         public static void BadValue()
