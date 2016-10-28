@@ -14,34 +14,6 @@ namespace KCKTest.Views.Activities
             return Menu.Selected;
         }
 
-        public static string EditType()
-        {
-            Console.Clear();
-            Console.WriteLine("Enter new type: ");
-            return Console.ReadLine();
-        }
-
-        public static string EditDistance()
-        {
-            Console.Clear();
-            Console.WriteLine("Enter new distance: ");
-            return Console.ReadLine();
-        }
-
-        public static string EditDate()
-        {
-            Console.Clear();
-            Console.WriteLine("Enter new date: ");
-            return Console.ReadLine();
-        }
-
-        public static string EditNote()
-        {
-            Console.Clear();
-            Console.WriteLine("Enter new note: ");
-            return Console.ReadLine();
-        }
-
         public static void Done()
         {
             Console.Clear();

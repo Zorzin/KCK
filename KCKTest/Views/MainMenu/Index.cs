@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using KCKTest.Views.layouts;
 
-namespace KCKTest.Views.Activity
+namespace KCKTest.Views.MainMenu
 {
     internal class Index
     {

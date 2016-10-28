@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using KCKTest.Logic;
 using KCKTest.Models;
 using KCKTest.Views.Activities;
 using KCKTest.Views.Calendar;
+using KCKTest.Views.layouts;
 using MainView = KCKTest.Views.Calendar.MainView;
 
 namespace KCKTest.Controllers
@@ -54,11 +56,11 @@ namespace KCKTest.Controllers
                         }
                         else
                         {
-                            var searchactivitiesController = new ActivitiesContoller(searchlist);
+                            var searchactivitiesController = new ActivitiesController(searchlist);
                         }
                         break;
                     case 2: //show
-                        var activitiesController = new ActivitiesContoller(GetFromDB.LoadList(user));
+                        var activitiesController = new ActivitiesController(GetFromDB.LoadList(user));
                         break;
                     case 3: //logout
                         user = null;
@@ -66,7 +68,7 @@ namespace KCKTest.Controllers
                         return;
                     case 4: //changegoal
                         Goal.GetValues();
-                        if (Check.CheckGoal(user))
+                        if (Check.CheckGoal(user, Goal.Newgoal))
                             Goal.Done();
                         else
                             Goal.BadValue();
@@ -77,13 +79,13 @@ namespace KCKTest.Controllers
                         switch (whichdivider)
                         {
                             case 0:
-                                if (Check.CheckBikeDivider(user))
+                                if (Check.CheckBikeDivider(user, Divider.Divide))
                                     Divider.Done();
                                 else
                                     Divider.BadValue();
                                 break;
                             case 1:
-                                if (Check.CheckSwimDivider(user))
+                                if (Check.CheckSwimDivider(user, Divider.Divide))
                                     Divider.Done();
                                 else
                                     Divider.BadValue();
@@ -92,7 +94,7 @@ namespace KCKTest.Controllers
                         break;
                     case 6: //changepassword
                         ChangePassword.Change();
-                        if (Check.CheckPassword(user))
+                        if (Check.CheckPassword(user, ChangePassword.Password, ChangePassword.Repassword))
                             ChangePassword.Done();
                         else
                             ChangePassword.WrongData();
@@ -142,27 +144,8 @@ namespace KCKTest.Controllers
                 return false;
             }
 
-            return AddActivityToDB(type, distance, date, note);
+            return SaveDB.AddActivityToDB(user,type, distance, date, note);
         }
-
-        
-        private bool AddActivityToDB(string type, float distance, DateTime date, string note)
-        {
-            try
-            {
-                db.activities.Add(new Models.Activity(type, distance, date, user.idusers, note));
-                db.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
-        /**
-         * koniec dodawania
-        **/
 
         /**
          * Wyszukiwanie
@@ -180,9 +163,7 @@ namespace KCKTest.Controllers
                         return null;
                     }
                     DateTime date = d_date.Value;
-                    var dateresult = db.activities.Where(x => (x.userid == user.idusers) && (x.date == date));
-                    foreach (var activity in dateresult)
-                        activities.Add(activity);
+                    activities = SearchDB.SearchDate(date, user);
                     break;
                 case 2: //type
                     var type = GetFromUser.GetTypeFromUser();
@@ -190,11 +171,7 @@ namespace KCKTest.Controllers
                     {
                         return null;
                     }
-                    var typeresult = db.activities.Where(x => (x.userid == user.idusers) && (x.type == type));
-                    foreach (var activity in typeresult)
-                    {
-                        activities.Add(activity);
-                    }
+                    activities = SearchDB.SearchType(type, user);
                     break;
                 case 3: //distance
                     var d_distance = GetFromUser.GetDistanceFromUser();
@@ -203,11 +180,7 @@ namespace KCKTest.Controllers
                         return null;
                     }
                     var distance = d_distance.Value;
-                    var distanceresult = db.activities.Where( x => (x.userid == user.idusers) && (Math.Abs(x.distance - distance) < 0.0001));
-                    foreach (var activity in distanceresult)
-                    {
-                        activities.Add(activity);
-                    }
+                    activities = SearchDB.SearchDistance(distance, user);
                     break;
                 case 4: //note
                     var note = GetFromUser.GetNoteFromUser();
@@ -215,11 +188,7 @@ namespace KCKTest.Controllers
                     {
                         return null;
                     }
-                    var noteresult = from m in db.activities
-                        where m.note.Contains(note) && (m.userid == user.idusers)
-                        select m;
-                    foreach (var activity in noteresult)
-                        activities.Add(activity);
+                    activities = SearchDB.SearchNote(note, user);
                     break;
             }
             return activities;

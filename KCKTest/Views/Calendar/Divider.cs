@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using KCKTest.Controllers;
 using KCKTest.Views.layouts;
 
 namespace KCKTest.Views.Calendar
@@ -12,7 +13,7 @@ namespace KCKTest.Views.Calendar
         {
             Console.Clear();
             Console.WriteLine("Enter new divider: ");
-            Divide = Console.ReadLine();
+            Divide = CheckData.ChengeDot(Console.ReadLine());
         }
 
         public static void Done()

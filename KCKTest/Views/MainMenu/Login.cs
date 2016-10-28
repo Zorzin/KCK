@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace KCKTest.Views.Activity
+namespace KCKTest.Views.MainMenu
 {
     internal class Login
     {

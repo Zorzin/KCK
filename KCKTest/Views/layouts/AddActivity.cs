@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using KCKTest.Views.layouts;
+using KCKTest.Controllers;
 
-namespace KCKTest.Views.Calendar
+namespace KCKTest.Views.layouts
 {
     static class AddActivity
     {
@@ -28,7 +25,8 @@ namespace KCKTest.Views.Calendar
             Console.Clear();
             Console.WriteLine("Enter distance [km]: ");
             Console.WriteLine("Enter \"esc\" to exit.");
-            return Console.ReadLine();
+            return CheckData.ChengeDot(Console.ReadLine());
+
         }
 
         public static int GetMonth()
@@ -75,7 +73,7 @@ namespace KCKTest.Views.Calendar
             Console.Clear();
             Console.WriteLine("Enter Year: ");
             Console.WriteLine("Enter \"esc\" to exit.");
-            return Console.ReadLine();
+            return CheckData.ChengeDot(Console.ReadLine());
         }
     }
 }
