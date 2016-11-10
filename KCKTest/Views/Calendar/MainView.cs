@@ -23,11 +23,11 @@ namespace KCKTest.Views.Calendar
             Console.SetCursorPosition(0, 1);
             Console.Write("Goal: ");
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Write(user.goal + "km" + Environment.NewLine);
+            Console.Write(user.goal + " km" + Environment.NewLine);
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("Score: ");
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write(score + "km" + Environment.NewLine);
+            Console.Write(score + " km" + Environment.NewLine);
         }
 
         private void ShowValues()

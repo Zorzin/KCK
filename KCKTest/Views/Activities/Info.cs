@@ -12,7 +12,7 @@ namespace KCKTest.Views.Activities
         {
             Console.Clear();
             Console.WriteLine("Type: " + activity.type);
-            Console.WriteLine("Distance: " + activity.distance);
+            Console.WriteLine("Distance: " + activity.distance + " km");
             Console.WriteLine("Date: " + activity.date.Value.ToString("dd-MM-yyyy"));
             Console.WriteLine("Note: " + activity.note);
             var position = Console.CursorTop;

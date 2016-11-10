@@ -72,6 +72,7 @@
     <Compile Include="Controllers\ActivitiesController.cs" />
     <Compile Include="Logic\Check.cs" />
     <Compile Include="Logic\CheckData.cs" />
+    <Compile Include="Logic\CheckRegister.cs" />
     <Compile Include="Logic\GetFromDB.cs" />
     <Compile Include="Logic\GetFromUser.cs" />
     <Compile Include="Controllers\MainMenuController.cs" />
