@@ -20,6 +20,7 @@ namespace KCKTest.Controllers
                 switch (index.Selected)
                 {
                     case 0:
+                        
                         var login = new Login();
                         var user = CheckData.Login(login.Name, login.Password);
                         if (user != null)
@@ -30,6 +31,7 @@ namespace KCKTest.Controllers
                         login.WrongData();
                         break;
                     case 1:
+                        Console.Clear();
                         var register = new Register();
                         if (CheckData.Register(register.Name, register.Password, register.RePassword, register.Goal,
                             register.BikeDivider, register.SwimDivider))
@@ -44,7 +46,7 @@ namespace KCKTest.Controllers
                 }
             }
         }
-
+        
         
     }
 }

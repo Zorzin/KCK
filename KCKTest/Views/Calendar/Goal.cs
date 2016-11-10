@@ -10,7 +10,7 @@ namespace KCKTest.Views.Calendar
         public static void GetValues()
         {
             Console.Clear();
-            Console.WriteLine("Enter new goal: ");
+            Console.WriteLine("Enter new goal [km]: ");
             Newgoal = CheckData.ChengeDot(Console.ReadLine());
         }
 

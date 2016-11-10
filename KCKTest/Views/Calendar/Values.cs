@@ -11,8 +11,8 @@ namespace KCKTest.Views.Calendar
         {
             Console.Clear();
             Console.WriteLine("User: " + user.name);
-            Console.WriteLine("Goal: " + user.goal);
-            Console.WriteLine("Actual score: " + score);
+            Console.WriteLine("Goal: " + user.goal + " km");
+            Console.WriteLine("Actual score: " + score + " km");
             Console.WriteLine("Swim divider: " + user.swimdivider);
             Console.WriteLine("Bike divider: " + user.bikedivider);
             Console.WriteLine("Number of activities: " + numberofactivities);
