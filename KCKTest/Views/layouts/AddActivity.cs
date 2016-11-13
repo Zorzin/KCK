@@ -22,9 +22,12 @@ namespace KCKTest.Views.layouts
 
         public static string GetDistance()
         {
-            Console.Clear();
-            Console.WriteLine("Enter distance [km]: ");
+            int middle = (Console.WindowWidth-20)/2;
+            Console.SetCursorPosition(middle, Console.CursorTop);
             Console.WriteLine("Enter \"esc\" to exit.");
+            Console.SetCursorPosition(middle, Console.CursorTop);
+            Console.WriteLine("Enter distance [km]: ");
+            Console.SetCursorPosition(middle, Console.CursorTop);
             return CheckData.ChengeDot(Console.ReadLine());
 
         }
@@ -45,14 +48,20 @@ namespace KCKTest.Views.layouts
         public static string GetNote()
         {
             Console.Clear();
-            Console.WriteLine("Enter Note: ");
+            int middle = (Console.WindowWidth-20)/2;
+            Console.SetCursorPosition(middle, Console.CursorTop);
             Console.WriteLine("Enter \"esc\" to exit.");
+            Console.SetCursorPosition(middle, Console.CursorTop);
+            Console.WriteLine("Enter Note: ");
+            Console.SetCursorPosition(middle, Console.CursorTop);
             return Console.ReadLine();
         }
 
         public static int GetDate()
         {
             Console.Clear();
+            int middle = (Console.WindowWidth-20)/2;
+            Console.SetCursorPosition(middle, Console.CursorTop);
             Console.WriteLine("Select date: ");
             var yearList = new List<string> {"Exit", "Today", "Yesterday", "Another date"};
             Menu.ShowMenu(yearList);
@@ -62,17 +71,23 @@ namespace KCKTest.Views.layouts
         public static int GetActivityType()
         {
             Console.Clear();
+            int middle = (Console.WindowWidth-20)/2;
+            Console.SetCursorPosition(middle, Console.CursorTop);
             Console.WriteLine("Select type: ");
             List<string> typeList = new List<string>() {"Exit","Run","Swim","Bike"};
             Menu.ShowMenu(typeList);
+            Console.SetCursorPosition(middle, Console.CursorTop);
             return Menu.Selected;
         }
 
         public static string GetYear()
         {
-            Console.Clear();
-            Console.WriteLine("Enter Year: ");
+            int middle = (Console.WindowWidth-20)/2;
+            Console.SetCursorPosition(middle, Console.CursorTop);
             Console.WriteLine("Enter \"esc\" to exit.");
+            Console.SetCursorPosition(middle, Console.CursorTop);
+            Console.WriteLine("Enter Year: ");
+            Console.SetCursorPosition(middle, Console.CursorTop);
             return CheckData.ChengeDot(Console.ReadLine());
         }
     }

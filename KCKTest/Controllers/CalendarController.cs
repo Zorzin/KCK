@@ -33,13 +33,19 @@ namespace KCKTest.Controllers
                     case 0: //add
                         if (AddActivity())
                         {
-                            //powodzenia
                             Back.Clear();
+                            string s = "Activity added";
+                            int middle = (Console.WindowWidth-s.Length)/2;
+                            Console.SetCursorPosition(middle, Console.CursorTop);
+                            Console.WriteLine(s);
                         }
                         else
                         {
-                            //niepowodzenie
                             Back.Clear();
+                            string s = "Something goes wrong, activity not added";
+                            int middle = (Console.WindowWidth-s.Length)/2;
+                            Console.SetCursorPosition(middle, Console.CursorTop);
+                            Console.WriteLine(s);
                         }
                         break;
                     case 1: //search
@@ -75,16 +81,21 @@ namespace KCKTest.Controllers
                         break;
                     case 5: //setdivider
                         var whichdivider = Divider.WhichDivider();
+                        if (whichdivider==0)
+                        {
+                            Back.Clear();
+                            break;
+                        }
                         Divider.GetValues();
                         switch (whichdivider)
                         {
-                            case 0:
+                            case 1:
                                 if (Check.CheckBikeDivider(user, Divider.Divide))
                                     Divider.Done();
                                 else
                                     Divider.BadValue();
                                 break;
-                            case 1:
+                            case 2:
                                 if (Check.CheckSwimDivider(user, Divider.Divide))
                                     Divider.Done();
                                 else

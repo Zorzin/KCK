@@ -20,11 +20,13 @@ namespace KCKTest.Views.Calendar
 
         private void ShowScore()
         {
-            Console.SetCursorPosition(0, 1);
-            Console.Write("Goal: ");
+            int middle = (Console.WindowWidth-20)/2;
+            Console.SetCursorPosition(middle, Console.CursorTop+1);
+            Console.Write("Goal:  ");
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write(user.goal + " km" + Environment.NewLine);
             Console.ForegroundColor = ConsoleColor.White;
+            Console.SetCursorPosition(middle, Console.CursorTop);
             Console.Write("Score: ");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write(score + " km" + Environment.NewLine);
