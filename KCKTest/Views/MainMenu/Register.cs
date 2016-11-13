@@ -26,26 +26,32 @@ namespace KCKTest.Views.MainMenu
         {
             while (true)
             {
+                Console.Clear();
                 if (!GetName())
                 {
                     return;
                 }
+                Console.Clear();
                 if (!GetPassword())
                 {
                     return;
                 }
+                Console.Clear();
                 if (!GetRePassword())
                 {
                     return;
                 }
+                Console.Clear();
                 if (!GetGoal())
                 {
                     return;
                 }
+                Console.Clear();
                 if (!GetBike())
                 {
                     return;
                 }
+                Console.Clear();
                 if (!GetSwim())
                 {
                     return;
@@ -59,12 +65,16 @@ namespace KCKTest.Views.MainMenu
         public void WrongData()
         {
             Console.Clear();
+            int middle = (Console.WindowWidth-20)/2;
+            Console.SetCursorPosition(middle, Console.CursorTop);
             Console.WriteLine("Wrong data, type again.");
         }
 
         public void Registered()
         {
             Console.Clear();
+            int middle = (Console.WindowWidth-20)/2;
+            Console.SetCursorPosition(middle, Console.CursorTop);
             Console.WriteLine("User created.");
         }
 
@@ -78,9 +88,12 @@ namespace KCKTest.Views.MainMenu
         }
         private void ShowOnConsole(string s)
         {
-            Console.Clear();
+            int middle = (Console.WindowWidth-21)/2;
+            Console.SetCursorPosition(middle, Console.CursorTop+1);
             Console.WriteLine("Type \"esc\" to cancel.");
+            Console.SetCursorPosition(middle, Console.CursorTop);
             Console.WriteLine("Enter "+s+":");
+            Console.SetCursorPosition(middle, Console.CursorTop);
         }
         private bool GetName()
         {
@@ -96,6 +109,11 @@ namespace KCKTest.Views.MainMenu
                 {
                     return true;
                 }
+                Console.Clear();
+                string s = "Your name must be at least 5 characters long.";
+                int middle = (Console.WindowWidth-s.Length)/2;
+                Console.SetCursorPosition(middle, Console.CursorTop);
+                Console.WriteLine(s);
             }
         }
 
@@ -113,6 +131,11 @@ namespace KCKTest.Views.MainMenu
                 {
                     return true;
                 }
+                Console.Clear();
+                string s = "Your password must be at least 6 characters long.";
+                int middle = (Console.WindowWidth-s.Length)/2;
+                Console.SetCursorPosition(middle, Console.CursorTop);
+                Console.WriteLine(s);
             }
         }
 
@@ -130,6 +153,11 @@ namespace KCKTest.Views.MainMenu
                 {
                     return true;
                 }
+                Console.Clear();
+                string s = "Passwords are not the same.";
+                int middle = (Console.WindowWidth-s.Length)/2;
+                Console.SetCursorPosition(middle, Console.CursorTop);
+                Console.WriteLine(s);
             }
         }
 
@@ -147,6 +175,11 @@ namespace KCKTest.Views.MainMenu
                 {
                     return true;
                 }
+                Console.Clear();
+                string s = "Goal must be bigger than 0.";
+                int middle = (Console.WindowWidth-s.Length)/2;
+                Console.SetCursorPosition(middle, Console.CursorTop);
+                Console.WriteLine(s);
             }
         }
 
@@ -164,6 +197,11 @@ namespace KCKTest.Views.MainMenu
                 {
                     return true;
                 }
+                Console.Clear();
+                string s = "Divider must be bigger than 0.";
+                int middle = (Console.WindowWidth-s.Length)/2;
+                Console.SetCursorPosition(middle, Console.CursorTop);
+                Console.WriteLine(s);
             }
         }
 
@@ -181,6 +219,11 @@ namespace KCKTest.Views.MainMenu
                 {
                     return true;
                 }
+                Console.Clear();
+                string s = "Divider must be bigger than 0.";
+                int middle = (Console.WindowWidth-s.Length)/2;
+                Console.SetCursorPosition(middle, Console.CursorTop);
+                Console.WriteLine(s);
             }
         }
     }

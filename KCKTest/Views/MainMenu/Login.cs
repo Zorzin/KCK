@@ -38,12 +38,18 @@ namespace KCKTest.Views.MainMenu
         private void ShowOnConsole(string s)
         {
             Console.Clear();
+            int middle = (Console.WindowWidth-21)/2;
+            Console.SetCursorPosition(middle,Console.CursorTop);
             Console.WriteLine("Type \"esc\" to cancel.");
+            Console.SetCursorPosition(middle, Console.CursorTop);
             Console.WriteLine("Enter " + s + ":");
+            Console.SetCursorPosition(middle, Console.CursorTop);
         }
         public void WrongData()
         {
             Console.Clear();
+            int middle = (Console.WindowWidth-20)/2;
+            Console.SetCursorPosition(middle, Console.CursorTop);
             Console.WriteLine("Wrong name or password");
         }
 
